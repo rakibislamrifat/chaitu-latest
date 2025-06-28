@@ -272,6 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 font-size: 1.3rem;
             }
         }
+        
     </style>
 </head>
 <body class="chaitu-body">

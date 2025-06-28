@@ -54,5 +54,15 @@ function create_userinformation_table() {
     ) $charset_collate;";
     dbDelta($sql);
 }
-add_action('after_switch_theme', 'create_userinformation_table');
+add_action('after_switch_theme', 'create_userinformation_table');function custom_user_avatar_shortcode() {
+    if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        $avatar = get_avatar( $current_user->ID, 40 ); // 40 is the size
+        $profile_url = get_edit_profile_url( $current_user->ID );
 
+        return '<a href="' . esc_url($profile_url) . '">' . $avatar . '</a>';
+    } else {
+        return '<a href="/login">Login</a> | <a href="/register">Sign Up</a>';
+    }
+}
+add_shortcode('user_avatar', 'custom_user_avatar_shortcode');

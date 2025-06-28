@@ -50,15 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'phone'   => $phone,
                 ]);
 
-                // Clean up session
-                unset(
-                    $_SESSION['pending_signup'],
-                    $_SESSION['email_otp'],
-                    $_SESSION['otp_expiry'],
-                    $_SESSION['email_to_verify']
-                );
+                // Clean up all session data
+                session_unset();
+                session_destroy();
 
-                wp_redirect(home_url('/'));
+                // Redirect to sign-in page
+                wp_redirect(home_url('/sign-in'));
                 exit;
             } else {
                 $errors[] = "Account creation failed: " . $user_id->get_error_message();

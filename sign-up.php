@@ -305,6 +305,13 @@ select.chaitu-input:focus {
     flex-direction: column;
 }
 
+.chaitu-required{
+    color: #dc3545;
+    font-weight: 600;
+   
+
+}
+
 .chaitu-label {
     font-size: 0.95rem;
     font-weight: 500;
@@ -327,6 +334,7 @@ select.chaitu-input:focus {
 .chaitu-input::placeholder {
     color: #999999;
 }
+
 
 .chaitu-input:focus {
     outline: none;
@@ -520,14 +528,14 @@ select.chaitu-input:focus {
     <form method="POST" action="http://localhost/ChaituNew/sign-up" novalidate class="chaitu-form">
         <div class="chaitu-form-row">
             <div class="chaitu-form-group">
-                <label class="chaitu-label">First Name</label>
+                <label class="chaitu-label">First Name <span class="chaitu-required">*</span></label>
                 <input type="text" name="first_name" class="chaitu-input" 
                        value="<?= htmlspecialchars($_POST['first_name'] ?? '') ?>" 
                        placeholder="Enter your first name" required />
             </div>
 
             <div class="chaitu-form-group">
-                <label class="chaitu-label">Last Name</label>
+                <label class="chaitu-label">Last Name <span class="chaitu-required">*</span></label>
                 <input type="text" name="last_name" class="chaitu-input" 
                        value="<?= htmlspecialchars($_POST['last_name'] ?? '') ?>" 
                        placeholder="Enter your last name" required />
@@ -535,13 +543,13 @@ select.chaitu-input:focus {
         </div>
 
         <div class="chaitu-form-group">
-            <label class="chaitu-label">Date of Birth</label>
+            <label class="chaitu-label">Date of Birth <span class="chaitu-required">*</span></label>
             <input type="date" name="dob" class="chaitu-input" 
                    value="<?= htmlspecialchars($_POST['dob'] ?? '') ?>" required />
         </div>
 
         <div class="chaitu-form-group">
-        <label class="chaitu-label">Username</label>
+        <label class="chaitu-label">Username <span class="chaitu-required">*</span></label>
         <input type="text" name="username" class="chaitu-input" 
                value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" 
                placeholder="Choose a unique username" required />
