@@ -153,6 +153,97 @@ $total_entries_giveaway = "2";
         margin-top: 20px;
     }
 
+
+    /* Unique form styles */
+
+    .form-group.form-unique {
+        position: relative;
+
+        /* adjust as needed */
+    }
+
+    .form-group.form-unique .form-input {
+        width: 100%;
+        padding: 12px 120px 12px 15px;
+        /* right padding for icons */
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .form-group.form-unique .payment-icons {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transform: translateY(-50%);
+    }
+
+    .form-group.form-unique .payment-icon {
+        width: 35px;
+        height: 22px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        /* hide text */
+    }
+
+    .form-group.form-unique .payment-icon.visa {
+        background-image: url('https://i.ibb.co/39j4sGcc/Visa-Inc-Logo-wine.png');
+    }
+
+    .form-group.form-unique .payment-icon.mastercard {
+        background-image: url('https://i.ibb.co/jPLQMBZ5/master-card-logo-png-seeklogo-89117.png');
+    }
+
+    .form-group.form-unique .payment-icon.amex {
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo_%282018%29.svg');
+    }
+
+    /* CLOSE  Unique form styles */
+
+
+    /* Payment section unique group */
+    .card-input-group.unique-form-group {
+        display: flex;
+        gap: 20px;
+        /* spacing between the two inputs */
+    }
+
+    .card-input-group .form-group {
+        position: relative;
+        flex: 1;
+    }
+
+    .card-input-group .form-input {
+        width: 100%;
+        padding: 12px 40px 12px 12px;
+        /* right padding for the icon */
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .card-input-group .security-group .cvc-icon {
+        position: absolute;
+        top: 70%;
+        right: 10px;
+        width: 50px;
+        height: 30px;
+
+        transform: translateY(-50%);
+        background: url('https://i.ibb.co/35YNgp26/cvv.png') no-repeat center;
+        background-size: contain;
+    }
+
+
+    /* CLOSE Payment section unique group */
+
     .form-subtitle {
         color: #666;
         font-size: 14px;
@@ -634,10 +725,10 @@ $total_entries_giveaway = "2";
                         </label>
                         <div class="mobile-input">
                             <select class="country-code-select">
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+44">🇬🇧 +44</option>
-                                <option value="+880">🇧🇩 +880</option>
-                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+1">US +1</option>
+                                <option value="+44">DB +44</option>
+                                <option value="+880">BD +880</option>
+                                <option value="+91">IN +91</option>
                                 <!-- Add more countries -->
                             </select>
                             <input type="tel" placeholder="Enter mobile number">
@@ -665,7 +756,7 @@ $total_entries_giveaway = "2";
                     <div class="payment-section">
                         <h3 class="payment-title">PAYMENT</h3>
 
-                        <div class="form-group">
+                        <div class="form-group form-unique">
                             <label class="form-label">Card number</label>
                             <input type="text" class="form-input" placeholder="1234 1234 1234 1234">
                             <div class="payment-icons">
@@ -675,26 +766,23 @@ $total_entries_giveaway = "2";
                             </div>
                         </div>
 
-                        <div class="card-input-group">
+                        <div class="card-input-group unique-form-group">
                             <div class="form-group">
                                 <label class="form-label">Expiration date</label>
                                 <input type="text" class="form-input" placeholder="MM / YY">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group security-group">
                                 <label class="form-label">Security code</label>
                                 <input type="text" class="form-input" placeholder="CVC">
-                            </div>
-                            <div style="display: flex; align-items: center; justify-content: center; margin-top: 25px;">
-                                <div style="width: 30px; height: 20px; background: #ccc; border-radius: 3px;"></div>
+                                <div class="cvc-icon"></div>
                             </div>
                         </div>
 
+
                         <div class="form-group">
                             <label class="form-label">Country</label>
-                            <select class="form-input select-input">
-                                <option>Bangladesh</option>
-                                <option>India</option>
-                                <option>Pakistan</option>
+                            <select class="form-input select-input" id="country-select">
+                                <!-- JS will insert options here -->
                             </select>
                         </div>
                     </div>
@@ -919,6 +1007,59 @@ $total_entries_giveaway = "2";
         }
     });
     </script>
+
+
+
+
+    <!-- Country Script -->
+    <script>
+    const countries = [
+        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda",
+        "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
+        "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+        "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso",
+        "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic",
+        "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia",
+        "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+        "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini",
+        "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana",
+        "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti",
+        "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
+        "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati",
+        "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya",
+        "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia",
+        "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico",
+        "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique",
+        "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua",
+        "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan",
+        "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines",
+        "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis",
+        "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino",
+        "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles",
+        "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia",
+        "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan",
+        "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania",
+        "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia",
+        "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates",
+        "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City",
+        "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+    ];
+
+    const select = document.getElementById('country-select');
+
+    countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = country;
+        select.appendChild(option);
+    });
+    </script>
+
+
+
+
+
+
 </body>
 
 </html>
