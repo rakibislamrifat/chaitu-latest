@@ -26,9 +26,7 @@ $total_entries_giveaway = "2";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-SOME_HASH_VALUE" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Express Checkout</title>
     <style>
     * {
@@ -90,8 +88,8 @@ $total_entries_giveaway = "2";
     }
 
     .main-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: row;
         gap: 30px;
     }
 
@@ -243,6 +241,59 @@ $total_entries_giveaway = "2";
 
 
     /* CLOSE Payment section unique group */
+
+
+    /* Promo Package Css */
+    .promo-package {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        justify-content: space-between;
+    }
+
+    .promo-package-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .promo-package img {
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .promo-package-name {
+        font-weight: bold;
+    }
+
+    .promo-price {
+        display: flex;
+    }
+
+    .promo-price-main {
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+    .promo-price-details span:first-child {
+        text-decoration: line-through;
+    }
+
+    .promo-discount {
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-top: 10px;
+        font-weight: 600;
+        color: rgb(105, 101, 101);
+    }
+
+
+
+    /* Promo Package Css */
 
     .form-subtitle {
         color: #666;
@@ -441,8 +492,8 @@ $total_entries_giveaway = "2";
     }
 
     .giveaway-title {
-        color: #2D4CFF;
-        font-size: 18px;
+        color: #0000FE;
+        font-size: 25px;
         font-weight: bold;
         margin-bottom: 15px;
     }
@@ -457,20 +508,25 @@ $total_entries_giveaway = "2";
         gap: 15px;
     }
 
-    .prize-image {
-        width: 80px;
-        height: 60px;
-        background: #333;
-        border-radius: 8px;
-        background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><rect width="100" height="60" fill="%23333"/><text x="50" y="35" text-anchor="middle" fill="white" font-size="8">CAR</text></svg>');
-        background-size: cover;
+    .prize-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+
     }
 
+    .prize-info {
+        font-weight: bold;
+    }
+
+
+
     .prize-info h3 {
-        color: #2D4CFF;
+        color: #0000FE;
         font-size: 14px;
         font-weight: bold;
         margin-bottom: 5px;
+
     }
 
     .prize-value {
@@ -508,7 +564,7 @@ $total_entries_giveaway = "2";
     }
 
     .summary-title {
-        color: #2D4CFF;
+        color: #0000FE;
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 15px;
@@ -531,11 +587,19 @@ $total_entries_giveaway = "2";
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         margin-top: 20px;
+        gap: 10px;
+        height: 100px;
+
     }
 
     .trust-item {
         text-align: center;
         flex: 1;
+        border: 1px solid #E5E7EB;
+        border-radius: 10px;
+        padding: 10px;
+        width: 100px;
+
     }
 
     .trust-icon {
@@ -546,30 +610,11 @@ $total_entries_giveaway = "2";
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 20px;
     }
 
-    .verified {
-        background: #00D084;
-    }
 
-    .secure {
-        background: #2D4CFF;
-    }
-
-    .anytime {
-        background: #FFB020;
-    }
-
-    .australian {
-        background: #FF4757;
-    }
-
-    .series {
-        background: #7B68EE;
-    }
 
     .trust-text {
         color: #666;
@@ -577,74 +622,171 @@ $total_entries_giveaway = "2";
         line-height: 1.2;
     }
 
-    .winner-section {
-        background: linear-gradient(135deg, #2D4CFF 0%, #1A3DFF 100%);
-        color: white;
-        padding: 20px;
-        border-radius: 15px;
-        text-align: center;
-        margin-top: 20px;
+
+    /* Swiper css  */
+    .swiper-container {
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        overflow: hidden;
     }
 
-    .winner-title {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .winner-subtitle {
-        font-size: 12px;
-        opacity: 0.8;
-        margin-bottom: 15px;
-    }
-
-    .winner-profile {
+    .swiper-wrapper {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+        transition: transform 0.5s ease;
     }
 
-    .winner-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #333;
+    .swiper-slide {
+        min-width: 100%;
+        flex-shrink: 0;
+    }
+
+    .testimonial-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonial-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #0066ff, #004dcc);
+    }
+
+    .prize-title {
+        color: #0066ff;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .testimonial-text {
+
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .winner-info {
-        text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
     }
 
-    .winner-name {
-        font-weight: bold;
+    .winner-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #0066ff;
+    }
+
+    .winner-details h3 {
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .winner-details p {
+        color: #666;
         font-size: 14px;
-    }
-
-    .winner-status {
-        font-size: 12px;
-        opacity: 0.8;
     }
 
     .swiper-pagination {
         display: flex;
         justify-content: center;
         gap: 8px;
-        margin-top: 15px;
+        margin-top: 30px;
     }
 
-    .swiper-dot {
-        width: 8px;
-        height: 8px;
+    .pagination-dot {
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
+        background-color: #ddd;
         cursor: pointer;
         transition: all 0.3s ease;
     }
 
-    .swiper-dot.active {
-        background: white;
+    .pagination-dot.active {
+        background-color: #0066ff;
+        transform: scale(1.2);
     }
+
+    .pagination-dot:hover {
+        background-color: #0066ff;
+        opacity: 0.7;
+    }
+
+    /* Navigation arrows */
+    .swiper-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #0066ff;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .swiper-nav:hover {
+        background-color: #0066ff;
+        color: white;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .swiper-nav.prev {
+        left: -80px;
+    }
+
+    .swiper-nav.next {
+        right: -80px;
+    }
+
+    @media (max-width: 768px) {
+        .swiper-nav {
+            display: none;
+        }
+
+        .testimonial-card {
+            padding: 30px 20px;
+        }
+
+        .prize-title {
+            font-size: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+        }
+    }
+
+
 
     .terms-link {
         text-align: center;
@@ -660,7 +802,7 @@ $total_entries_giveaway = "2";
 
     @media (max-width: 768px) {
         .main-content {
-            grid-template-columns: 1fr;
+            flex-direction: column;
         }
 
         .form-row {
@@ -679,15 +821,6 @@ $total_entries_giveaway = "2";
         <!-- Header -->
         <div class="header">
             <h1 class="express-checkout">EXPRESS CHECKOUT</h1>
-            <div class="starter-package">
-                <div class="starter-text">
-                    🏁 STARTER<br>PACKAGE
-                </div>
-                <div>
-                    <div class="price"><?php echo $starter_package_price; ?></div>
-                    <div class="price-small">$20.95/month</div>
-                </div>
-            </div>
         </div>
 
         <div class="main-content">
@@ -696,8 +829,7 @@ $total_entries_giveaway = "2";
                 <!-- PayLink Button -->
                 <button class="paylink-btn">
                     Pay with <span>
-                        <img style="width: 20px;" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/next.png"
-                            alt="">
+                        <img style="width: 20px;" src="https://i.ibb.co/My8wxKWY/next.png" alt="">
                     </span>link
                 </button>
 
@@ -816,12 +948,42 @@ $total_entries_giveaway = "2";
 
             <!-- Right Section -->
             <div class="right-section">
+
+
+                <!-- Promo Package -->
+                <div>
+                    <div class="promo-package">
+                        <div class="promo-package-left">
+                            <!-- Example icon, replace with your image -->
+                            <div>
+                                <img src="https://i.ibb.co/kgqsLtbw/starter-Dhy-UAsp-U.png" alt="Starter Package" />
+                            </div>
+                            <div class="promo-package-name">STARTER <br> PACKAGE</div>
+                        </div>
+                        <div>
+                            <div class="promo-price">
+                                <span class="promo-price-main">$10</span>
+                                <div class="promo-price-details">
+                                    <span>$20</span> <br>
+                                    <span>/month for first month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="promo-discount">
+                        <span>✔️ Promo Applied!</span>
+                        <p>Nice one, $10 off your payment has been locked in!</p>
+                    </div>
+                </div>
                 <!-- Current Giveaway -->
                 <div class="giveaway-section">
                     <h2 class="giveaway-title">CURRENT GIVEAWAY</h2>
 
                     <div class="prize-card">
-                        <div class="prize-image"></div>
+                        <div>
+                            <img class="prize-img" src="https://i.ibb.co/0pnw8R6B/Ford-Mustang-Exterior-126883.jpg"
+                                alt="Ford Mustang" />
+                        </div>
                         <div class="prize-info">
                             <h3>NEW 2025 FORD MUSTANG OR <?php echo $ford_mustang_value; ?> CASH</h3>
                             <div class="prize-value">Total Value: <?php echo $ford_mustang_value; ?></div>
@@ -845,7 +1007,10 @@ $total_entries_giveaway = "2";
                     <h2 class="giveaway-title">ALSO IN THIS FOR FREE</h2>
 
                     <div class="prize-card">
-                        <div class="prize-image"></div>
+                        <div>
+                            <img class="prize-img" src="https://i.ibb.co/0pnw8R6B/Ford-Mustang-Exterior-126883.jpg"
+                                alt="Ford Mustang" />
+                        </div>
                         <div class="prize-info">
                             <h3>MODIFIED BMW X6M 50I OR $100,000 CASH</h3>
                             <div class="prize-value">Total Value: <?php echo $bmw_x6m_value; ?></div>
@@ -869,145 +1034,238 @@ $total_entries_giveaway = "2";
                 <!-- Trust Indicators -->
                 <div class="trust-indicators">
                     <div class="trust-item">
-                        <div class="trust-icon verified">✓</div>
+                        <div class="trust-icon verified">
+                            <img src="https://i.ibb.co/mVjy97g6/download.png" alt="">
+                        </div>
                         <div class="trust-text">Verifiably Fair</div>
                     </div>
                     <div class="trust-item">
-                        <div class="trust-icon secure">🔒</div>
+                        <div class="trust-icon secure">
+                            <img src="https://i.ibb.co/zTD7Rrsd/download-1.png" alt="">
+                        </div>
                         <div class="trust-text">Secure Checkout</div>
                     </div>
                     <div class="trust-item">
-                        <div class="trust-icon anytime">⏰</div>
+                        <div class="trust-icon anytime">
+                            <img src="https://i.ibb.co/PzFmKQsD/download-2.png" alt="">
+                        </div>
                         <div class="trust-text">Cancel Anytime</div>
                     </div>
                     <div class="trust-item">
-                        <div class="trust-icon australian">🇦🇺</div>
-                        <div class="trust-text">Australian Owned</div>
+                        <div class="trust-icon australian">
+                            <img src="https://i.ibb.co/spRmkjd6/download-3.png" alt="">
+                        </div>
+                        <div class="trust-text">Australian</div>
                     </div>
                     <div class="trust-item">
-                        <div class="trust-icon series">📺</div>
+                        <div class="trust-icon series">
+                            <img src="https://i.ibb.co/JjphX1YL/download-4.png" alt="">
+                        </div>
                         <div class="trust-text">3000 Series</div>
                     </div>
                 </div>
 
                 <!-- Winner Section with Swiper -->
-                <div class="winner-section" id="winnerSwiper">
-                    <div class="winner-title">LANDCRUISER 78 SERIES OR $100,000 CASH</div>
-                    <div class="winner-subtitle">"I can't believe I won on Winners Locker! I'm like doing and cheering"
-                    </div>
-
-                    <div class="winner-slides">
-                        <div class="winner-slide active">
-                            <div class="winner-profile">
-                                <div class="winner-avatar"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="swiperWrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="prize-title">NEW FORD RAPTOR OR $70,000 CASH</div>
+                                <div class="testimonial-text">
+                                    "It's truly overwhelming, this win for my family has come at the absolute right time
+                                    a new car is a must, pop some bits and travel to see much loved family."
+                                </div>
                                 <div class="winner-info">
-                                    <div class="winner-name">WINNER: Julia H. NSW</div>
-                                    <div class="winner-status">Bronze Membership</div>
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b8c5?w=100&h=100&fit=crop&crop=face"
+                                        alt="Winner" class="winner-avatar">
+                                    <div class="winner-details">
+                                        <h3>WINNER: Lauraine B, QLD</h3>
+                                        <p>Starter Membership</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="prize-title">LUXURY VACATION PACKAGE OR $45,000 CASH</div>
+                                <div class="testimonial-text">
+                                    "I can't believe I actually won! This prize will help us take the family vacation
+                                    we've been dreaming about for years. Thank you so much!"
+                                </div>
+                                <div class="winner-info">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                        alt="Winner" class="winner-avatar">
+                                    <div class="winner-details">
+                                        <h3>WINNER: Michael R, NSW</h3>
+                                        <p>Premium Membership</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="prize-title">HOME RENOVATION OR $60,000 CASH</div>
+                                <div class="testimonial-text">
+                                    "This is absolutely life-changing! We've been saving for years to renovate our
+                                    kitchen and now we can finally make it happen. So grateful!"
+                                </div>
+                                <div class="winner-info">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+                                        alt="Winner" class="winner-avatar">
+                                    <div class="winner-details">
+                                        <h3>WINNER: Sarah T, VIC</h3>
+                                        <p>Gold Membership</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <div class="prize-title">DREAM MOTORCYCLE OR $35,000 CASH</div>
+                                <div class="testimonial-text">
+                                    "As a lifelong motorcycle enthusiast, winning this prize is like a dream come true.
+                                    I never thought I'd be lucky enough to win something like this!"
+                                </div>
+                                <div class="winner-info">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+                                        alt="Winner" class="winner-avatar">
+                                    <div class="winner-details">
+                                        <h3>WINNER: David L, WA</h3>
+                                        <p>Platinum Membership</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="swiper-pagination">
-                        <div class="swiper-dot active"></div>
-                        <div class="swiper-dot"></div>
-                        <div class="swiper-dot"></div>
-                        <div class="swiper-dot"></div>
-                        <div class="swiper-dot"></div>
-                    </div>
+                    <!-- Navigation -->
+                    <button class="swiper-nav prev" onclick="previousSlide()">❮</button>
+                    <button class="swiper-nav next" onclick="nextSlide()">❯</button>
+
+                    <!-- Pagination -->
+                    <div class="swiper-pagination" id="pagination"></div>
                 </div>
+
             </div>
         </div>
     </div>
 
+    <!-- swipper js -->
     <script>
-    // Simple swiper functionality for winner section
-    const swiperDots = document.querySelectorAll('.swiper-dot');
-    let currentSlide = 0;
+    class TestimonialSwiper {
+        constructor() {
+            this.currentSlide = 0;
+            this.totalSlides = document.querySelectorAll('.swiper-slide').length;
+            this.wrapper = document.getElementById('swiperWrapper');
+            this.pagination = document.getElementById('pagination');
 
-    // Sample winner data
-    const winners = [{
-            name: "WINNER: Julia H. NSW",
-            status: "Bronze Membership"
-        },
-        {
-            name: "WINNER: Mark T. QLD",
-            status: "Silver Membership"
-        },
-        {
-            name: "WINNER: Sarah L. VIC",
-            status: "Gold Membership"
-        },
-        {
-            name: "WINNER: David M. WA",
-            status: "Platinum Membership"
-        },
-        {
-            name: "WINNER: Emma R. SA",
-            status: "Bronze Membership"
+            this.init();
         }
-    ];
 
-    function updateSlide(index) {
-        // Update active dot
-        swiperDots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
+        init() {
+            this.createPagination();
+            this.updateSlide();
+            this.startAutoPlay();
+            this.addTouchEvents();
+        }
 
-        // Update winner info
-        const winnerInfo = document.querySelector('.winner-info');
-        winnerInfo.querySelector('.winner-name').textContent = winners[index].name;
-        winnerInfo.querySelector('.winner-status').textContent = winners[index].status;
+        createPagination() {
+            for (let i = 0; i < this.totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'pagination-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => this.goToSlide(i));
+                this.pagination.appendChild(dot);
+            }
+        }
 
-        currentSlide = index;
+        updateSlide() {
+            const translateX = -this.currentSlide * 100;
+            this.wrapper.style.transform = `translateX(${translateX}%)`;
+
+            // Update pagination
+            document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentSlide);
+            });
+        }
+
+        nextSlide() {
+            this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+            this.updateSlide();
+        }
+
+        previousSlide() {
+            this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+            this.updateSlide();
+        }
+
+        goToSlide(index) {
+            this.currentSlide = index;
+            this.updateSlide();
+        }
+
+        startAutoPlay() {
+            setInterval(() => {
+                this.nextSlide();
+            }, 5000); // Auto-advance every 5 seconds
+        }
+
+        addTouchEvents() {
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            this.wrapper.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            this.wrapper.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+            });
+
+            this.wrapper.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const diffX = startX - currentX;
+                const threshold = 50;
+
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.previousSlide();
+                    }
+                }
+            });
+        }
     }
 
-    // Add click events to dots
-    swiperDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => updateSlide(index));
-    });
+    // Global functions for navigation buttons
+    let swiper;
 
-    // Auto-advance slides every 3 seconds
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % winners.length;
-        updateSlide(currentSlide);
-    }, 3000);
+    function nextSlide() {
+        swiper.nextSlide();
+    }
 
-    // Form validation and interactions
-    document.addEventListener('DOMContentLoaded', function() {
-        // Card number formatting
-        const cardInput = document.querySelector('input[placeholder="1234 1234 1234 1234"]');
-        if (cardInput) {
-            cardInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
-                this.value = formattedValue;
-            });
-        }
+    function previousSlide() {
+        swiper.previousSlide();
+    }
 
-        // Expiry date formatting
-        const expiryInput = document.querySelector('input[placeholder="MM / YY"]');
-        if (expiryInput) {
-            expiryInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, '');
-                if (value.length >= 2) {
-                    value = value.substring(0, 2) + ' / ' + value.substring(2, 4);
-                }
-                this.value = value;
-            });
-        }
-
-        // Form submission
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Form submitted! This is a demo.');
-            });
-        }
+    // Initialize swiper when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        swiper = new TestimonialSwiper();
     });
     </script>
-
 
 
 
