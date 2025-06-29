@@ -26,6 +26,9 @@ $total_entries_giveaway = "2";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
     <title>Express Checkout</title>
     <style>
@@ -98,7 +101,7 @@ $total_entries_giveaway = "2";
         padding: 25px;
         border-radius: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-
+        width: 45%
     }
 
     .paylink-btn {
@@ -231,7 +234,7 @@ $total_entries_giveaway = "2";
         position: absolute;
         top: 70%;
         right: 10px;
-        width: 50px;
+        width: 40px;
         height: 30px;
 
         transform: translateY(-50%);
@@ -241,6 +244,12 @@ $total_entries_giveaway = "2";
 
 
     /* CLOSE Payment section unique group */
+
+
+    /* Swipper css */
+
+
+    /* Swipper css end */
 
 
     /* Promo Package Css */
@@ -468,6 +477,7 @@ $total_entries_giveaway = "2";
         display: flex;
         flex-direction: column;
         gap: 20px;
+        width: 55%;
     }
 
     .promo-banner {
@@ -589,6 +599,7 @@ $total_entries_giveaway = "2";
         margin-top: 20px;
         gap: 10px;
         height: 100px;
+        overflow: hidden;
 
     }
 
@@ -623,152 +634,16 @@ $total_entries_giveaway = "2";
     }
 
 
-    /* Swiper css  */
-    .swiper-container {
-        width: 100%;
-        max-width: 600px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .swiper-wrapper {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
-
-    .swiper-slide {
-        min-width: 100%;
-        flex-shrink: 0;
-    }
-
-    .testimonial-card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .testimonial-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #0066ff, #004dcc);
-    }
-
-    .prize-title {
-        color: #0066ff;
-        font-size: 18px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-    }
-
-    .testimonial-text {
-
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 30px;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .winner-info {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .winner-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #0066ff;
-    }
-
-    .winner-details h3 {
-        color: #333;
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
-
-    .winner-details p {
-        color: #666;
-        font-size: 14px;
-    }
-
-    .swiper-pagination {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 30px;
-    }
-
-    .pagination-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: #ddd;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .pagination-dot.active {
-        background-color: #0066ff;
-        transform: scale(1.2);
-    }
-
-    .pagination-dot:hover {
-        background-color: #0066ff;
-        opacity: 0.7;
-    }
-
-    /* Navigation arrows */
-    .swiper-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: white;
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: #0066ff;
-        transition: all 0.3s ease;
-        z-index: 10;
-    }
-
-    .swiper-nav:hover {
-        background-color: #0066ff;
-        color: white;
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .swiper-nav.prev {
-        left: -80px;
-    }
-
-    .swiper-nav.next {
-        right: -80px;
-    }
 
     @media (max-width: 768px) {
+        .left-section {
+            width: 100%;
+        }
+
+        .right-section {
+            width: 100%;
+        }
+
         .swiper-nav {
             display: none;
         }
@@ -1066,206 +941,58 @@ $total_entries_giveaway = "2";
                 </div>
 
                 <!-- Winner Section with Swiper -->
-                <div class="swiper-container">
-                    <div class="swiper-wrapper" id="swiperWrapper">
-                        <!-- Slide 1 -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="prize-title">NEW FORD RAPTOR OR $70,000 CASH</div>
-                                <div class="testimonial-text">
-                                    "It's truly overwhelming, this win for my family has come at the absolute right time
-                                    a new car is a must, pop some bits and travel to see much loved family."
-                                </div>
-                                <div class="winner-info">
-                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b8c5?w=100&h=100&fit=crop&crop=face"
-                                        alt="Winner" class="winner-avatar">
-                                    <div class="winner-details">
-                                        <h3>WINNER: Lauraine B, QLD</h3>
-                                        <p>Starter Membership</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <h1>LAND CRUISHER 76 AUTO OR $100,000 CASH</h1>
+                            <P>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, dolorum?""
+                            </P>
 
-                        <!-- Slide 2 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="prize-title">LUXURY VACATION PACKAGE OR $45,000 CASH</div>
-                                <div class="testimonial-text">
-                                    "I can't believe I actually won! This prize will help us take the family vacation
-                                    we've been dreaming about for years. Thank you so much!"
-                                </div>
-                                <div class="winner-info">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                                        alt="Winner" class="winner-avatar">
-                                    <div class="winner-details">
-                                        <h3>WINNER: Michael R, NSW</h3>
-                                        <p>Premium Membership</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
 
-                        <!-- Slide 3 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="prize-title">HOME RENOVATION OR $60,000 CASH</div>
-                                <div class="testimonial-text">
-                                    "This is absolutely life-changing! We've been saving for years to renovate our
-                                    kitchen and now we can finally make it happen. So grateful!"
-                                </div>
-                                <div class="winner-info">
-                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-                                        alt="Winner" class="winner-avatar">
-                                    <div class="winner-details">
-                                        <h3>WINNER: Sarah T, VIC</h3>
-                                        <p>Gold Membership</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 4 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <div class="prize-title">DREAM MOTORCYCLE OR $35,000 CASH</div>
-                                <div class="testimonial-text">
-                                    "As a lifelong motorcycle enthusiast, winning this prize is like a dream come true.
-                                    I never thought I'd be lucky enough to win something like this!"
-                                </div>
-                                <div class="winner-info">
-                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-                                        alt="Winner" class="winner-avatar">
-                                    <div class="winner-details">
-                                        <h3>WINNER: David L, WA</h3>
-                                        <p>Platinum Membership</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
-                    <!-- Navigation -->
-                    <button class="swiper-nav prev" onclick="previousSlide()">❮</button>
-                    <button class="swiper-nav next" onclick="nextSlide()">❯</button>
-
-                    <!-- Pagination -->
-                    <div class="swiper-pagination" id="pagination"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
+
 
             </div>
         </div>
     </div>
 
-    <!-- swipper js -->
+    <style>
+    .swiper {
+        width: 100%;
+        background: #f0f0f0;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-    class TestimonialSwiper {
-        constructor() {
-            this.currentSlide = 0;
-            this.totalSlides = document.querySelectorAll('.swiper-slide').length;
-            this.wrapper = document.getElementById('swiperWrapper');
-            this.pagination = document.getElementById('pagination');
-
-            this.init();
-        }
-
-        init() {
-            this.createPagination();
-            this.updateSlide();
-            this.startAutoPlay();
-            this.addTouchEvents();
-        }
-
-        createPagination() {
-            for (let i = 0; i < this.totalSlides; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'pagination-dot';
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => this.goToSlide(i));
-                this.pagination.appendChild(dot);
-            }
-        }
-
-        updateSlide() {
-            const translateX = -this.currentSlide * 100;
-            this.wrapper.style.transform = `translateX(${translateX}%)`;
-
-            // Update pagination
-            document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === this.currentSlide);
-            });
-        }
-
-        nextSlide() {
-            this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-            this.updateSlide();
-        }
-
-        previousSlide() {
-            this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-            this.updateSlide();
-        }
-
-        goToSlide(index) {
-            this.currentSlide = index;
-            this.updateSlide();
-        }
-
-        startAutoPlay() {
-            setInterval(() => {
-                this.nextSlide();
-            }, 5000); // Auto-advance every 5 seconds
-        }
-
-        addTouchEvents() {
-            let startX = 0;
-            let currentX = 0;
-            let isDragging = false;
-
-            this.wrapper.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-            });
-
-            this.wrapper.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                currentX = e.touches[0].clientX;
-            });
-
-            this.wrapper.addEventListener('touchend', () => {
-                if (!isDragging) return;
-                isDragging = false;
-
-                const diffX = startX - currentX;
-                const threshold = 50;
-
-                if (Math.abs(diffX) > threshold) {
-                    if (diffX > 0) {
-                        this.nextSlide();
-                    } else {
-                        this.previousSlide();
-                    }
-                }
-            });
-        }
-    }
-
-    // Global functions for navigation buttons
-    let swiper;
-
-    function nextSlide() {
-        swiper.nextSlide();
-    }
-
-    function previousSlide() {
-        swiper.previousSlide();
-    }
-
-    // Initialize swiper when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-        swiper = new TestimonialSwiper();
+    var swiper = new Swiper(".mySwiper", {
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            clickable: true,
+            el: ".swiper-pagination",
+        },
     });
     </script>
+
 
 
 
